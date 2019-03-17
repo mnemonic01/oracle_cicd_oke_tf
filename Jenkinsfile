@@ -19,8 +19,7 @@ pipeline {
       steps {
           
           sh 'terraform init'
-          sh 'terraform refresh -lock=false'
-          sh 'terraform plan -lock=false'
+          sh 'terraform plan -lock=false -out oke_plan'
       }      
     }
 
