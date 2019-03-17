@@ -29,7 +29,7 @@ pipeline {
 
     stage('TF Apply') {
       steps {
-          sh 'terraform apply -input=false oke_plan'
+          sh 'terraform apply -lock=false -input=false oke_plan'
       }
     }
 
