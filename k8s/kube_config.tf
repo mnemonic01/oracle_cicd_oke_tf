@@ -17,6 +17,6 @@ data "oci_containerengine_cluster_kube_config" "demo_cluster_kube_config" {
 
 resource "local_file" "demo_cluster_kube_config_file" {
   content  = "${data.oci_containerengine_cluster_kube_config.demo_cluster_kube_config.content}"
-  filename = "${path.module}/demo_cluster_kubeconfig"
+  filename = "/home/opc/config"
 }
 
