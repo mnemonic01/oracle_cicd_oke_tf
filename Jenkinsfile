@@ -14,7 +14,7 @@ pipeline {
     stage('TF Plan') {
       steps {
           
-          # sh 'terraform init' #only need for first run 
+          // sh 'terraform init' //only need for first run 
           sh 'terraform refresh' 
           sh 'terraform plan -lock=false -out oke_plan'
       }      
