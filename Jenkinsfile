@@ -30,7 +30,6 @@ pipeline {
 
     stage('TF Apply') {
       steps {
-          slackSend "Build Finished"
           sh 'sudo terraform apply -lock=false -input=false oke_plan'
       }
     }
