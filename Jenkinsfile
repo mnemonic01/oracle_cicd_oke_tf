@@ -15,7 +15,7 @@ pipeline {
       steps {
           
           // sh 'terraform init' //only need for first run 
-          sh 'terraform refresh' 
+          sh 'terraform refresh -lock=false' 
           sh 'terraform plan -lock=false -out oke_plan'
       }      
     }
