@@ -15,8 +15,8 @@ pipeline {
       steps {
           
           // sh 'terraform init' //only need for first run 
-          sh 'terraform refresh -lock=false' 
-          sh 'terraform plan -lock=false -out oke_plan'
+          sh 'sudo terraform refresh -lock=false' 
+          sh 'sudo terraform plan -lock=false -out oke_plan'
       }      
     }
 
@@ -30,7 +30,7 @@ pipeline {
 
     stage('TF Apply') {
       steps {
-          sh 'terraform apply -lock=false -input=false oke_plan'
+          sh 'sudo terraform apply -lock=false -input=false oke_plan'
       }
     }
 
