@@ -41,7 +41,7 @@ variable "node_pool_initial_node_labels_value" {
 }
 
 variable "node_pool_quantity_per_subnet" {
-  default = 0
+  default = 3
 }
 
 #variable "node_pool_ssh_public_key" {
