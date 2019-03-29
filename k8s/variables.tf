@@ -8,17 +8,17 @@ variable "sec_lists_ids" {}
 
 variable "oke_cluster" {
   type    = "map"
-  default = { 
+  default = {
     name           = "Demo_Cluster"
     k8s_version    = "v1.12.6"
-    pool_name      = "Demo_Node_Pool" 
-    node_image     = "Oracle-Linux-7.5"  
-    node_shape     = "VM.Standard2.1"  
-    pods_cidr      = "10.1.0.0/16" 
+    pool_name      = "Demo_Node_Pool"
+    node_image     = "Oracle-Linux-7.5"
+    node_shape     = "VM.Standard2.1"
+    pods_cidr      = "10.1.0.0/16"
     services_cidr = "10.2.0.0/16"
-    
-  } 
-} 
+
+  }
+}
 
 variable "availability_domain" {
   default = 3
@@ -41,11 +41,10 @@ variable "node_pool_initial_node_labels_value" {
 }
 
 variable "node_pool_quantity_per_subnet" {
-  default = 1
+  default = 2
 }
 
 #variable "node_pool_ssh_public_key" {
 #  default = "${chomp(file(id_rsa.pub))}"
 #}
 #
-
