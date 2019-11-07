@@ -6,3 +6,5 @@ locals {
   ad_2_name = "${lookup(data.oci_identity_availability_domains.ads.availability_domains[1],"name")}"
   ad_3_name = "${lookup(data.oci_identity_availability_domains.ads.availability_domains[2],"name")}"
 }
+
+//
