@@ -5,6 +5,7 @@
 ### Terraform ###
 # Local .terraform directories
 **/.terraform/*
+oke_plan
 
 # .tfstate files
 *.tfstate
