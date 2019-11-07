@@ -4,10 +4,10 @@ variable "tenancy_ocid" {}
 variable "user_ocid" {}
 variable "fingerprint" {}
 variable "private_key_path" {}
-variable "reston_compartment_ocid" {}
+variable "compartment_ocid" {}
 
 variable "region" {
-  default = "us-ashburn-1"
+  default = "us-phoenix-1"
 }
 
 variable "project_name" {

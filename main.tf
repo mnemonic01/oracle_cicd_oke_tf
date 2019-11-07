@@ -9,12 +9,34 @@ provider "oci" {
   private_key_path = "${var.private_key_path}"
 }
 
+
+data "oci_identity_tenancy" "tenancy" {
+  tenancy_id = "${var.tenancy_ocid}"
+}
+
+data "oci_identity_regions" "home-region" {
+  filter {
+    name   = "key"
+    values = ["${data.oci_identity_tenancy.tenancy.home_region_key}"]
+  }
+}
+
+provider "oci" {
+  alias            = "home"
+  region           = "${lookup(data.oci_identity_regions.home-region.regions[0], "name")}"
+  tenancy_ocid     = "${var.tenancy_ocid}"
+  user_ocid        = "${var.user_ocid}"
+  fingerprint      = "${var.fingerprint}"
+  private_key_path = "${var.private_key_path}"
+}
+
 /*------------------------------------------------------------------------------
     COMPARTMENT
 ------------------------------------------------------------------------------*/
 
-resource "oci_identity_compartment" "demo_compartment" {
-  compartment_id = "${var.reston_compartment_ocid}"
+resource "oci_identity_compartment" "demo_compartment" { 
+  provider       = "oci.home"
+  compartment_id = "${var.compartment_ocid}"
   description    = "${var.project_name}"
   name           = "${var.project_name}"
 }
