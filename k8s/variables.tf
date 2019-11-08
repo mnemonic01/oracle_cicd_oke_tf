@@ -13,7 +13,7 @@ variable "oke_cluster" {
     k8s_version    = "v1.13.5"
     pool_name      = "Demo_Node_Pool"
     node_image     = "Oracle-Linux-7.5"
-    node_shape     = "VM.Standard2.1"
+    node_shape     = "VM.Standard2.2"
     pods_cidr      = "10.1.0.0/16"
     services_cidr = "10.2.0.0/16"
 
