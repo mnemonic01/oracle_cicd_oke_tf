@@ -12,7 +12,7 @@ variable "region" {
 
 variable "project_name" {
   type    = "string"
-  default = "OKE_CICD1"
+  default = "OKE"
 }
 
 #/*  currenltly not working in pillar tenant 
