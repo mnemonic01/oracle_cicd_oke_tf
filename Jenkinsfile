@@ -15,6 +15,8 @@ pipeline {
 
           // sh 'terraform init' //only need for first run 
           // sh 'sudo terraform refresh -lock=false' 
+
+          sh 'source /etc/profile'
           sh 'env'
           sh 'sudo terraform plan -lock=false -out oke_plan'
       }      
