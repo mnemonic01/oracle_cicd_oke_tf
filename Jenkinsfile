@@ -15,8 +15,9 @@ pipeline {
 
           // sh 'terraform init' //only need for first run 
           // sh 'sudo terraform refresh -lock=false' 
-
-          sh 'sudo terraform plan -var-file='/home/opc/terraform.tfvars' -lock=false -out oke_plan'
+          sh 'cp ../terraform.tfvars .'
+          sh 'ls'
+          sh 'sudo terraform plan  -lock=false -out oke_plan'
       }      
     }
 
