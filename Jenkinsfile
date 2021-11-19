@@ -13,8 +13,8 @@ pipeline {
     stage('TF Plan') {
       steps {
 
-          // sh 'terraform init' //only need for first run 
-          // sh 'sudo terraform refresh -lock=false' 
+          sh 'terraform init' //only need for first run 
+          sh 'sudo terraform refresh -lock=false' 
           sh 'cp ../terraform.tfvars .'
           sh 'ls'
           sh 'sudo terraform plan  -lock=false -out oke_plan'
