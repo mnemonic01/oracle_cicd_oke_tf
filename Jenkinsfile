@@ -15,7 +15,7 @@ pipeline {
           
           sh 'PATH=/usr/local/bin/terraform'
           sh 'terraform init' //only need for first run 
-          //sh 'sudo terraform refresh -lock=false' //
+          sh 'sudo terraform refresh -lock=false'
           sh 'cp ../terraform.tfvars .'
           sh 'ls'
           sh 'sudo terraform plan  -lock=false -out oke_plan'
