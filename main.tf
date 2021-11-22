@@ -34,7 +34,7 @@ provider "oci" {
     COMPARTMENT
 ------------------------------------------------------------------------------*/
 
-resource oci_identity_compartment qualogyholding { 
+resource oci_identity_compartment Demo3 { 
   provider       = oci.home
   compartment_id = "${var.compartment_ocid}"
   description    = "${var.project_name}"
@@ -47,18 +47,18 @@ resource oci_identity_compartment qualogyholding {
 
 resource "oci_core_virtual_network" "demo_vcn" {
   cidr_block     = "10.0.0.0/16"
-  compartment_id = "${oci_identity_compartment.Demo.id}"
+  compartment_id = "${oci_identity_compartment.Demo3.id}"
   display_name   = "VcnForClusters"
 }
 
 resource "oci_core_internet_gateway" "demo_ig" {
-  compartment_id = "${oci_identity_compartment.Demo.id}"
+  compartment_id = "${oci_identity_compartment.Demo3.id}"
   display_name   = "ClusterInternetGateway"
   vcn_id         = "${oci_core_virtual_network.demo_vcn.id}"
 }
 
 resource "oci_core_route_table" "demo_route_table" {
-  compartment_id = "${oci_identity_compartment.Demo.id}"
+  compartment_id = "${oci_identity_compartment.Demo3.id}"
   vcn_id         = "${oci_core_virtual_network.demo_vcn.id}"
   display_name   = "ClustersRouteTable"
 
