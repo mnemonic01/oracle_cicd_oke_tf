@@ -13,7 +13,6 @@ pipeline {
       steps {
           
           sh 'PATH=/usr/local/bin'
-          sh 'which terraform'
           sh 'terraform fmt'
           sh 'terraform init' //only need for first run 
           sh 'sudo terraform refresh -lock=false'
