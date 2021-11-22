@@ -11,7 +11,7 @@ variable "region" {
 }
 
 variable "project_name" {
-  type    = "string"
+  type    = string
   default = OKE
 }
 
