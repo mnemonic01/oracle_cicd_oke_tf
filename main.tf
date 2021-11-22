@@ -35,7 +35,7 @@ provider "oci" {
 ------------------------------------------------------------------------------*/
 
 resource oci_identity_compartment demo_compartment { 
-  provider       = "oci.home"
+  provider       = oci.home
   compartment_id = "${var.compartment_ocid}"
   description    = "${var.project_name}"
   name           = "${var.project_name}"
