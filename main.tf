@@ -34,7 +34,7 @@ provider "oci" {
     COMPARTMENT
 ------------------------------------------------------------------------------*/
 
-resource "oci_identity_compartment" "demo_compartment" { 
+resource "oci_identity_compartment" { 
   provider       = "oci.home"
   compartment_id = "${var.compartment_ocid}"
   description    = "${var.project_name}"
