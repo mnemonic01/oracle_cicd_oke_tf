@@ -34,7 +34,7 @@ provider "oci" {
     COMPARTMENT
 ------------------------------------------------------------------------------*/
 
-resource oci_identity_compartment demo { 
+resource oci_identity_compartment Demo { 
   provider       = oci.home
   compartment_id = "${var.compartment_ocid}"
   description    = "${var.project_name}"
@@ -47,7 +47,7 @@ resource oci_identity_compartment demo {
 
 resource "oci_core_virtual_network" "demo_vcn" {
   cidr_block     = "10.0.0.0/16"
-  compartment_id = "${oci_identity_compartment.demo.id}"
+  compartment_id = "${oci_identity_compartment.Demo.id}"
   display_name   = "VcnForClusters"
 }
 
