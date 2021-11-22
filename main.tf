@@ -77,7 +77,7 @@ module "k8s"{
   source           = "./k8s"
 
   ads              = [ "${local.ad_1_name}", "${local.ad_2_name}", "${local.ad_2_name}" ]
-  compartment_ocid = "${oci_identity_compartment.demo.id}"
+  compartment_ocid = "${oci_identity_compartment.Demo.id}"
 
   vcn              = "${oci_core_virtual_network.demo_vcn.id}"
   route_table_id   = "${oci_core_route_table.demo_route_table.id}"
