@@ -6,8 +6,8 @@ variable "vcn" {}
 variable "route_table_id" {}
 variable "sec_lists_ids" {}
 
-variable oke_cluster {
-  type    = "map"
+variable "oke_cluster" {
+  type    = map
   default = {
     name           = "Demo_Cluster"
     k8s_version    = "v1.19.7"
