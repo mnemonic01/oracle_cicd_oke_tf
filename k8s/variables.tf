@@ -6,7 +6,7 @@ variable "vcn" {}
 variable "route_table_id" {}
 variable "sec_lists_ids" {}
 
-variable "oke_cluster" {
+variable oke_cluster {
   type    = "map"
   default = {
     name           = "Demo_Cluster"
