@@ -1,5 +1,5 @@
 variable "ads" {
-  type = "list"
+  type = list
 }
 variable "compartment_ocid" {}
 variable "vcn" {}
