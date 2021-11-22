@@ -34,7 +34,7 @@ provider "oci" {
     COMPARTMENT
 ------------------------------------------------------------------------------*/
 
-resource "oci_identity_compartment" "Demo" { 
+resource "oci_identity_compartment" "qualogyholding" { 
   provider       = oci.home
   compartment_id = "${lookup(data.oci_identity_compartments.qualogyholding.compartments[0],"id")}"
   description    = "${var.project_name}"
