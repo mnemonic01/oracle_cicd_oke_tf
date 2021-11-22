@@ -13,9 +13,9 @@ pipeline {
       steps {
           
           sh 'PATH=/usr/local/bin'
-          sh 'terraform fmt'
+         // sh 'terraform fmt'//
           sh 'terraform init' //only need for first run 
-          sh 'terraform refresh -lock=false'
+         // sh 'terraform refresh -lock=false'//
           sh 'cp ../terraform.tfvars .'
           sh 'ls'
           sh 'terraform plan  -lock=false -out oke_plan'
