@@ -7,7 +7,7 @@ variable "private_key_path" {}
 variable "compartment_ocid" {}
 
 variable "region" {
-  default = "us-phoenix-1"
+  default = "eu-frankfurt-1"
 }
 
 variable "project_name" {
