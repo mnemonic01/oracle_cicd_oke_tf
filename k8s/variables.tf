@@ -10,7 +10,7 @@ variable "oke_cluster" {
   type    = "map"
   default = {
     name           = "Demo_Cluster"
-    k8s_version    = "v1.13.5"
+    k8s_version    = "v1.19.7"
     pool_name      = "Demo_Node_Pool"
     node_image     = "Oracle-Linux-7.5"
     node_shape     = "VM.Standard2.2"
