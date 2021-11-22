@@ -13,8 +13,8 @@ pipeline {
     stage('TF Plan') {
       steps {
           
-          sh 'PATH=/usr/local/bin/terraform'
-          sh '/usr/local/bin/terraform init' //only need for first run 
+          sh 'PATH=/usr/local/bin'
+          sh 'terraform init' //only need for first run 
           sh 'sudo terraform refresh -lock=false'
           sh 'cp ../terraform.tfvars .'
           sh 'ls'
