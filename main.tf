@@ -52,13 +52,13 @@ resource "oci_core_virtual_network" "demo_vcn" {
 }
 
 resource "oci_core_internet_gateway" "demo_ig" {
-  compartment_id = "${oci_identity_compartment.demo.id}"
+  compartment_id = "${oci_identity_compartment.Demo.id}"
   display_name   = "ClusterInternetGateway"
   vcn_id         = "${oci_core_virtual_network.demo_vcn.id}"
 }
 
 resource "oci_core_route_table" "demo_route_table" {
-  compartment_id = "${oci_identity_compartment.demo.id}"
+  compartment_id = "${oci_identity_compartment.Demo.id}"
   vcn_id         = "${oci_core_virtual_network.demo_vcn.id}"
   display_name   = "ClustersRouteTable"
 
