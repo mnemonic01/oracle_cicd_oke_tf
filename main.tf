@@ -36,7 +36,7 @@ provider "oci" {
 
 resource "oci_identity_compartment" "Demo" { 
   provider       = oci.home
-  compartment_id = "${lookup(data.oci_identity_compartments.base_compartment.compartments[0],"id")}
+  compartment_id = "${lookup(data.oci_identity_compartments.base_compartment.compartments[0],"id")}"
   description    = "${var.project_name}"
   name           = "${var.project_name}"
 }
