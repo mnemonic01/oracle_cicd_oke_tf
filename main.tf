@@ -34,7 +34,7 @@ provider "oci" {
     COMPARTMENT
 ------------------------------------------------------------------------------*/
 
-resource "oci_identity_compartment" "test_compartment" { 
+resource "oci_identity_compartment" { 
   provider       = oci.home
   compartment_id = "${var.compartment_ocid}"
   description    = "${var.project_name}"
@@ -47,18 +47,18 @@ resource "oci_identity_compartment" "test_compartment" {
 
 resource "oci_core_virtual_network" "demo_vcn" {
   cidr_block     = "10.0.0.0/16"
-  compartment_id = "${oci_identity_compartment.test_compartment.id}"
+  compartment_id = "${oci_identity_compartment.id}"
   display_name   = "VcnForClusters"
 }
 
 resource "oci_core_internet_gateway" "demo_ig" {
-  compartment_id = "${oci_identity_compartment.test_compartment.id}"
+  compartment_id = "${oci_identity_compartment.id}"
   display_name   = "ClusterInternetGateway"
   vcn_id         = "${oci_core_virtual_network.demo_vcn.id}"
 }
 
 resource "oci_core_route_table" "demo_route_table" {
-  compartment_id = "${oci_identity_compartment.test_compartment.id}"
+  compartment_id = "${oci_identity_compartment.id}"
   vcn_id         = "${oci_core_virtual_network.demo_vcn.id}"
   display_name   = "ClustersRouteTable"
 
@@ -77,7 +77,7 @@ module "k8s"{
   source           = "./k8s"
 
   ads              = [ "${local.ad_1_name}", "${local.ad_2_name}", "${local.ad_2_name}" ]
-  compartment_ocid = "${oci_identity_compartment.test_compartment.id}"
+  compartment_ocid = "${oci_identity_compartment.id}"
 
   vcn              = "${oci_core_virtual_network.demo_vcn.id}"
   route_table_id   = "${oci_core_route_table.demo_route_table.id}"
