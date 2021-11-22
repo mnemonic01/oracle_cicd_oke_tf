@@ -13,11 +13,13 @@ pipeline {
       steps {
           
           sh 'PATH=/usr/local/bin'
+          sh 'which terraform'
+          sh 'terraform fmt'
           sh 'terraform init' //only need for first run 
           sh 'sudo terraform refresh -lock=false'
           sh 'cp ../terraform.tfvars .'
           sh 'ls'
-          sh 'sudo terraform plan  -lock=false -out oke_plan'
+          sh 'terraform plan  -lock=false -out oke_plan'
       }      
     }
 
@@ -31,7 +33,7 @@ pipeline {
 
     stage('TF Apply') {
       steps {
-          sh 'sudo terraform apply -lock=false -input=false oke_plan'
+          sh 'terraform apply -lock=false -input=false oke_plan'
       }
     }
 
