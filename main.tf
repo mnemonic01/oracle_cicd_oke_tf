@@ -4,6 +4,7 @@
 provider "oci" {
   region           = "${var.region}"
   tenancy_ocid     = "${var.tenancy_ocid}"
+  compartment_ocid  = "${var.compartment.ocid"
   user_ocid        = "${var.user_ocid}"
   fingerprint      = "${var.fingerprint}"
   private_key_path = "${var.private_key_path}"
@@ -34,9 +35,9 @@ provider "oci" {
     COMPARTMENT
 ------------------------------------------------------------------------------*/
 
-resource "oci_identity_compartment" "qualogyholding" { 
+resource "oci_identity_compartment" "Demo" { 
   provider       = oci.home
-  compartment_id = "${lookup(data.oci_identity_compartments.qualogyholding.compartments[0],"id")}"
+  compartment_id = "${lookup(data.oci_identity_compartments.Demo.compartments[0],"id")}"
   description    = "${var.project_name}"
   name           = "${var.project_name}"
 }
