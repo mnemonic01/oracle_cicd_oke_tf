@@ -33,10 +33,12 @@ provider "oci" {
 /*------------------------------------------------------------------------------
     COMPARTMENT
 ------------------------------------------------------------------------------*/
+# general oci parameters
+compartment_ocid = "ocid1.compartment.oc1..aaaaaaaaidy3jl7bdmiwfryo6myhdnujcuug5zxzoclsz7vpfzw4bggng7iq"
 
 resource "oci_identity_compartment" "Demo" { 
   provider       = oci.home
-  compartment_id = "${lookup(data.oci_identity_compartments.Demo.compartments[0],"id")}"
+  compartment_ocid = "${lookup(data.oci_identity_compartments.Demo.compartments[0],"id")}"
   description    = "${var.project_name}"
   name           = "${var.project_name}"
 }
