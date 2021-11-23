@@ -33,8 +33,6 @@ provider "oci" {
 /*------------------------------------------------------------------------------
     COMPARTMENT
 ------------------------------------------------------------------------------*/
-# general oci parameters
-compartment_ocid = "ocid1.compartment.oc1..aaaaaaaaidy3jl7bdmiwfryo6myhdnujcuug5zxzoclsz7vpfzw4bggng7iq"
 
 resource "oci_identity_compartment" "Demo" { 
   provider       = oci.home
